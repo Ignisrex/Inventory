@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Inventory</string>
+    <string name="add_button">Add Product</string>
+    <string name="no_products">No Products are currently stored. You can add a new product by clicking on the add product button on the bottom of the screen.</string>
+    <string name="sale">Make Sale</string>
+    <string name="shipment">Receive Shipment</string>
+    <string name="del">Delete Product</string>
+</resources>
