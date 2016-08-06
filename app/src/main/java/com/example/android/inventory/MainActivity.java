@@ -6,6 +6,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDbHelper =new InventoryDbHelper(getApplicationContext());
+
+
+    }
+
+    public void addButton(View view){
+
     }
 
     public void insertNewProduct(String productName, int quantity, float price){

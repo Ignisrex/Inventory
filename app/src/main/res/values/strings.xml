@@ -5,4 +5,8 @@
     <string name="sale">Make Sale</string>
     <string name="shipment">Receive Shipment</string>
     <string name="del">Delete Product</string>
+    <string name="finish">Finish</string>
+    <string name="product_name">Product Name</string>
+    <string name="initquantity">Quantity</string>
+    <string name="price">Price</string>
 </resources>
