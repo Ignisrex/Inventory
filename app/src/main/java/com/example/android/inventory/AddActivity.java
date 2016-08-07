@@ -15,6 +15,8 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+        int quantity = 0;
+        float price = 1;
         boolean dataValid = false;
 
         EditText enterName = (EditText) findViewById(R.id.enterName);
@@ -27,8 +29,8 @@ public class AddActivity extends AppCompatActivity {
             invalidData.show();
         }else{
             try{
-                int quantity = Integer.parseInt(enterQuantity.getText().toString());
-                float price = Float.parseFloat(enterPrice.getText().toString());
+                quantity = Integer.parseInt(enterQuantity.getText().toString());
+                price = Float.parseFloat(enterPrice.getText().toString());
             }catch (Exception e){
                 Toast invalidData = Toast.makeText(this,"Invalid Data Entry",Toast.LENGTH_SHORT);
                 invalidData.show();
@@ -37,7 +39,7 @@ public class AddActivity extends AppCompatActivity {
         }
 
         if (dataValid){
-            insertNewProduct();
+            DbUtils.insertNewProduct(prodcName,quantity,price,this);
         }
 
 
