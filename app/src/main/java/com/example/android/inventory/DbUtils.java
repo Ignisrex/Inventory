@@ -32,7 +32,7 @@ public class DbUtils {
     public static Cursor ReadAll(Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        String[] projection ={InventoryContract.ProductEntry.TABLE_NAME, InventoryContract.ProductEntry._ID,InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE};
+        String[] projection ={InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE};
 
         String sortOrder = InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME +" DESC";
 
