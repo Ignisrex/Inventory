@@ -14,34 +14,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="8dp"
         >
 
         <TextView
+            android:padding="8dp"
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="ProductName"/>
+            tools:text="ProductName"
+            android:textSize="32sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text ="10"/>
+            tools:text ="10"
+            android:textSize="32sp"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
     <TextView
+        android:paddingLeft="8dp"
+        android:padding="8dp"
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textColor="@color/black"
         tools:text ="$9.50"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        tools:text="Receive Shipment"/>
-
     <Button
+        android:layout_marginTop="8dp"
+        android:layout_margin="16dp"
         android:id="@+id/shipment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,6 +55,7 @@
         android:text="@string/shipment"/>
 
     <Button
+        android:layout_margin="16dp"
         android:id="@+id/sale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,11 +63,12 @@
         android:text="@string/sale"/>
 
     <Button
+        android:layout_margin="16dp"
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/del"
-        android:layout_gravity="end"/>
+        android:layout_gravity="bottom"/>
 
 
 </LinearLayout>
