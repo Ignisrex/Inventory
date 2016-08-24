@@ -49,8 +49,10 @@ public class AddActivity extends AppCompatActivity {
 
                 if (dataValid){
                     DbUtils.insertNewProduct(prodcName,quantity,price,getApplicationContext());
-                    Intent returnIntent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(returnIntent);
+                    Intent returnIntent = new Intent();
+                    setResult(RESULT_OK,returnIntent);
+                    finish();
+
                 }
             }
         });

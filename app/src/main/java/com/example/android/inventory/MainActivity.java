@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     private InventoryDbHelper mDbHelper = new InventoryDbHelper(this);
     private ProductAdapter mAdapter;
     private TextView mEmptyStateTextView;
+    private android.app.LoaderManager loaderManager;
     private static final int PRODUCT_LOADER_ID =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
             }
         });
 
-        android.app.LoaderManager loaderManager  = getLoaderManager();
+        loaderManager  = getLoaderManager();
         loaderManager.initLoader(PRODUCT_LOADER_ID,null,this);
     }
 
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
         if (products != null && !products.isEmpty()){
             mAdapter.addAll(products);
+            mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -77,9 +79,15 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     public void addButton(View view){
         Intent addIntent= new Intent(this,AddActivity.class);
-        startActivity(addIntent);
+        startActivityForResult(addIntent,0);
     }
 
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                loaderManager.restartLoader(0, null, this);
+            }
+        }
+    }
 }

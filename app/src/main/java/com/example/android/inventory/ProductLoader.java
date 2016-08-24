@@ -3,6 +3,7 @@ package com.example.android.inventory;
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,8 @@ public class ProductLoader extends AsyncTaskLoader {
         ArrayList<Product> products = new ArrayList<>();
         if(mProdcData != null && mProdcData.moveToFirst()){
             for (int n= 0; n<mProdcData.getColumnCount(); n++){
-                products.add(new Product(mProdcData.getString(n),mProdcData.getInt(n),mProdcData.getFloat(n)));
+                //products.add(new Product(mProdcData.getString(n),mProdcData.getInt(n),mProdcData.getFloat(n)));
+                Log.e("test",mProdcData.getString(n));
             }
         }
         return products;
