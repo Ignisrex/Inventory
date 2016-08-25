@@ -14,6 +14,9 @@ import java.util.List;
 public class ProductLoader extends AsyncTaskLoader {
 
     private Cursor mProdcData;
+    static final int COL_PRODC_NAME = 0;
+    static final int COL_QUANTITY = 1;
+    static final int COL_PRICE = 2;
 
     public ProductLoader(Context context,Cursor c){
         super(context);
@@ -29,12 +32,20 @@ public class ProductLoader extends AsyncTaskLoader {
     public List<Product> loadInBackground() {
 
         ArrayList<Product> products = new ArrayList<>();
-        if(mProdcData.getCount() > 0 && mProdcData.moveToFirst()){
-            for (int n= 0; n<mProdcData.getColumnCount(); n++){
-                products.add(new Product(mProdcData.getString(n),mProdcData.getInt(n),mProdcData.getFloat(n)));
-                Log.e("test",mProdcData.getString(n));
-            }
+
+        if(mProdcData == null || mProdcData.getCount() == 0) {
+            return null;
         }
+
+        while (mProdcData.moveToNext()) {
+            products.add(
+                    new Product(mProdcData.getString(COL_PRODC_NAME),
+                            mProdcData.getInt(COL_QUANTITY),
+                            mProdcData.getFloat(COL_PRICE))
+            );
+            Log.e("test",products.toString());
+        }
+
         return products;
     }
 }
