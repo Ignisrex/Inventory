@@ -30,7 +30,7 @@
 
     <TextView
         android:textSize="30sp"
-        android:id="@+id/quantity"
+        android:id="@+id/quantityAmt"
         android:layout_marginLeft="8dp"
         android:layout_weight="1"
         android:layout_width="0dp"

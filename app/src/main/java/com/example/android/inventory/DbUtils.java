@@ -38,7 +38,7 @@ public class DbUtils {
 
         Cursor c = db.query(InventoryContract.ProductEntry.TABLE_NAME,
                 projection,
-                InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME,
+                null,
                 null,
                 null,
                 null,

@@ -29,7 +29,7 @@ public class ProductLoader extends AsyncTaskLoader {
     public List<Product> loadInBackground() {
 
         ArrayList<Product> products = new ArrayList<>();
-        if(!(mProdcData.getCount() == 0 || mProdcData.moveToFirst())){
+        if(mProdcData.getCount() > 0 && mProdcData.moveToFirst()){
             for (int n= 0; n<mProdcData.getColumnCount(); n++){
                 products.add(new Product(mProdcData.getString(n),mProdcData.getInt(n),mProdcData.getFloat(n)));
                 Log.e("test",mProdcData.getString(n));
