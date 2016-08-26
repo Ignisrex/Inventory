@@ -3,11 +3,14 @@
     <string name="add_button">Add Product</string>
     <string name="no_products">No Products are currently stored. You can add a new product by clicking on the add product button on the bottom of the screen.</string>
     <string name="sale">Make Sale</string>
-    <string name="shipment">Receive Shipment</string>
+    <string name="shipment">Order More</string>
     <string name="del">Delete Product</string>
     <string name="finish">Finish</string>
     <string name="product_name">Product Name</string>
     <string name="initquantity">Quantity</string>
     <string name="price">Price</string>
+    <string name="delConfirmationMsg">Are you sure you want to permanently delete this Product?</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

@@ -63,13 +63,13 @@ public class DbUtils {
         db.delete(InventoryContract.ProductEntry.TABLE_NAME, selection,selectionArgs);
     }
 
-    public static void Update(String section,String column,String content, long rowId,Context context){
+    public static void Update(String column,String content, long rowId,Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues values =new ContentValues();
         values.put(column,content);
 
-        String selection = section + " LIKE ?";
+        String selection = InventoryContract.ProductEntry._ID + " LIKE ?";
         String[] selectionArgs = {String.valueOf(rowId)};
 
         db.update(
@@ -77,5 +77,15 @@ public class DbUtils {
                 values,
                 selection,
                 selectionArgs);
+    }
+    public static void delete(int rowId,Context context){
+        mDbHelper = new InventoryDbHelper(context);
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        String selection = InventoryContract.ProductEntry._ID + " LIKE ?";
+        ArrayList<String> args = new ArrayList<String>();
+
+        String[] selectionArgs = {""+rowId};
+        db.delete(InventoryContract.ProductEntry.TABLE_NAME, selection,selectionArgs);
     }
 }
