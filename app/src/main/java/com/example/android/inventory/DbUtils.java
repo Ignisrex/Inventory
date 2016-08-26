@@ -77,6 +77,7 @@ public class DbUtils {
                 values,
                 selection,
                 selectionArgs);
+        db.close();
     }
     public static void delete(int rowId,Context context){
         mDbHelper = new InventoryDbHelper(context);
@@ -87,5 +88,6 @@ public class DbUtils {
 
         String[] selectionArgs = {""+rowId};
         db.delete(InventoryContract.ProductEntry.TABLE_NAME, selection,selectionArgs);
+        db.close();
     }
 }
