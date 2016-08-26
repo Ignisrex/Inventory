@@ -22,12 +22,13 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     private TextView mEmptyStateTextView;
     private android.app.LoaderManager loaderManager;
     private static final int PRODUCT_LOADER_ID =1;
+    private  ListView productsListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView productsListView = (ListView) findViewById(R.id.list);
+        productsListView = (ListView) findViewById(R.id.list);
         mAdapter = new ProductAdapter(this,new ArrayList<Product>());
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
@@ -35,18 +36,20 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
         productsListView.setAdapter(mAdapter);
 
+        loaderManager  = getLoaderManager();
+        loaderManager.initLoader(PRODUCT_LOADER_ID,null,this);
+
         productsListView.setOnItemClickListener( new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Product currentProduct = mAdapter.getItem(position);
                 Intent productIntent =  new Intent(MainActivity.this, DetailsActivity.class);
                 productIntent.putExtra("currentProduct", currentProduct.getProductName());
-                startActivity(productIntent);
+                startActivityForResult(productIntent,0);
             }
         });
 
-        loaderManager  = getLoaderManager();
-        loaderManager.initLoader(PRODUCT_LOADER_ID,null,this);
+
     }
 
     @Override
@@ -90,4 +93,11 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
             }
         }
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        loaderManager.restartLoader(0, null, this);
+    }
+
 }
