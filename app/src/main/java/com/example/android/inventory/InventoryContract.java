@@ -13,6 +13,7 @@ public final class InventoryContract {
         public static final String COLUMN_NAME_PRODC_NAME = "ProductName";
         public static final String COLUMN_NAME_QUANTITY ="Quantity";
         public static final String COLUMN_NAME_PRICE = "Price";
+        public static final String COLUMN_NAME_IMAGE ="Image";
 
 
     }

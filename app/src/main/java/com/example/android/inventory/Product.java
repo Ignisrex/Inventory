@@ -25,4 +25,5 @@ public class Product {
     public float getPrice() {
         return mPrice;
     }
+
 }

@@ -16,7 +16,9 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Products.db";
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + InventoryContract.ProductEntry.TABLE_NAME + " (" +
             InventoryContract.ProductEntry._ID+ "INTEGER PRIMARY KEY" + COMMA_SEP + InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME
-            + TEXT_TYPE + COMMA_SEP + InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY + INT_TYPE + COMMA_SEP+ InventoryContract.ProductEntry.COLUMN_NAME_PRICE +REAL_TYPE+ ")";
+            + TEXT_TYPE + COMMA_SEP + InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY + INT_TYPE + COMMA_SEP+
+            InventoryContract.ProductEntry.COLUMN_NAME_PRICE +REAL_TYPE+COMMA_SEP+InventoryContract.ProductEntry.COLUMN_NAME_IMAGE
+            + TEXT_TYPE + ")";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + InventoryContract.ProductEntry.TABLE_NAME;
 
