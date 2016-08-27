@@ -1,60 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.inventory.AddActivity">
-
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:id="@+id/prodcImage"
-        />
-    <EditText
-        android:maxLines="1"
-        android:id="@+id/enterName"
-        android:layout_marginTop="48dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/product_name"
-        android:layout_marginBottom="24dp"/>
-
-    <EditText
-        android:maxLines="1"
-        android:id="@+id/enterQuantity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/initquantity"
-        android:layout_marginBottom="24dp"/>
-
-    <EditText
-        android:maxLines="1"
-        android:id="@+id/enterPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/price"
-        android:layout_marginBottom="24dp"/>
-
-    <Button
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addImage"
-        android:id="@+id/imagebutton" />
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.android.inventory.AddActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/finish"
-        android:id="@+id/finishbutton"
-        android:layout_marginTop="39dp"
-        android:layout_marginBottom="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_gravity="end" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/prodcImage"
+            />
+        <EditText
+            android:maxLines="1"
+            android:id="@+id/enterName"
+            android:layout_marginTop="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/product_name"
+            android:layout_marginBottom="24dp"/>
 
-</LinearLayout>
+        <EditText
+            android:maxLines="1"
+            android:id="@+id/enterQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/initquantity"
+            android:layout_marginBottom="24dp"
+            android:inputType="number"/>
+
+        <EditText
+            android:maxLines="1"
+            android:id="@+id/enterPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/price"
+            android:layout_marginBottom="24dp"
+            android:inputType="number"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addImage"
+            android:id="@+id/imagebutton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finish"
+            android:id="@+id/finishbutton"
+            android:layout_margin="39dp"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+</ScrollView>

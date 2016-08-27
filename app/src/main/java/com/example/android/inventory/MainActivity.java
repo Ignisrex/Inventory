@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     private android.app.LoaderManager loaderManager;
     private static final int PRODUCT_LOADER_ID =1;
     private  ListView productsListView;
+    private int REQUEST_CODE= 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
                 Product currentProduct = mAdapter.getItem(position);
                 Intent productIntent =  new Intent(MainActivity.this, DetailsActivity.class);
                 productIntent.putExtra("currentProduct", currentProduct.getProductName());
-                startActivityForResult(productIntent,0);
+                startActivityForResult(productIntent,REQUEST_CODE);
             }
         });
 
@@ -82,15 +83,14 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     public void addButton(View view){
         Intent addIntent= new Intent(this,AddActivity.class);
-        startActivityForResult(addIntent,0);
+        startActivityForResult(addIntent,REQUEST_CODE);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 0) {
-            if (resultCode == RESULT_OK) {
-                loaderManager.restartLoader(0, null, this);
-            }
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            loaderManager.restartLoader(0, null, this);
         }
     }
 

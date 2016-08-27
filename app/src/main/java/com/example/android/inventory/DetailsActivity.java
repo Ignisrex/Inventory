@@ -5,17 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.IOException;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -27,7 +22,7 @@ public class DetailsActivity extends AppCompatActivity {
     private Cursor c;
     private SQLiteDatabase db;
     private String selection;
-    private String[] projection ={InventoryContract.ProductEntry._ID,InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE, InventoryContract.ProductEntry.COLUMN_NAME_IMAGE};;
+    private String[] projection ={InventoryContract.ProductEntry._ID,InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +37,7 @@ public class DetailsActivity extends AppCompatActivity {
         if (extras != null) {
             name = extras.getString("currentProduct");
         }
-       selection = InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME + " LIKE '" + name+"'";
+        selection = InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME + " LIKE '" + name+"'";
 
         UpdateUi();
 
@@ -149,15 +144,15 @@ public class DetailsActivity extends AppCompatActivity {
         String priceTag = "$" + c.getFloat(COL_PRICE);
         priceTextView.setText(priceTag);
 
-        Uri imageUri= Uri.parse(c.getString(COL_IMAGE));
-        try {
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+       // Uri imageUri= Uri.parse(c.getString(COL_IMAGE));
+       // try {
+          //  Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 
-            ImageView imageView = (ImageView) findViewById(R.id.image);
-            imageView.setImageBitmap(bitmap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+         //   ImageView imageView = (ImageView) findViewById(R.id.image);
+         //   imageView.setImageBitmap(bitmap);
+       // } catch (IOException e) {
+          //  e.printStackTrace();
+      //  }
 
     }
 }

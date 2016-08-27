@@ -15,6 +15,7 @@ public class DbUtils {
     private static InventoryDbHelper mDbHelper;
 
     private DbUtils(){
+        //Constructor is Empty and private to prevent someone from creating an instance of the DBUtils Class.
     }
 
     public static void insertNewProduct(String productName, int quantity, float price, Context context){
@@ -46,7 +47,7 @@ public class DbUtils {
         return c;
     }
 
-    public static void deleteAll(Context context){
+    public static void DeleteAll(Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
         long cnt  = DatabaseUtils.queryNumEntries(db, InventoryContract.ProductEntry.TABLE_NAME);

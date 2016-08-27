@@ -2,7 +2,6 @@ package com.example.android.inventory;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -23,7 +22,7 @@ import java.io.IOException;
 public class AddActivity extends AppCompatActivity {
 
     private Uri imageUri;
-    private int IMAGE_REQUEST= 0;
+    private int IMAGE_REQUEST= 1;
     private InventoryDbHelper mDbHelper = new InventoryDbHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,28 +41,30 @@ public class AddActivity extends AppCompatActivity {
                 int quantity = 0;
                 float price = 1;
                 boolean dataValid = true;
-                String image = imageUri.toString();
-
+                if (imageUri != null) {
+                    String image = imageUri.toString();
+                }else {
+                    Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Image Given",Toast.LENGTH_SHORT);
+                    invalidData.show();
+                    dataValid = false;
+                }
                 String prodcName = enterName.getText().toString();
 
                 if (prodcName.isEmpty()){
                     Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Name Given",Toast.LENGTH_SHORT);
                     invalidData.show();
                     dataValid = false;
-                }else if(image.isEmpty()){
-                    Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Image Given",Toast.LENGTH_SHORT);
-                    invalidData.show();
-                   //dataValid = false;
-                }else{
-                    try{
+                    }else {
+                    try {
                         quantity = Integer.parseInt(enterQuantity.getText().toString());
                         price = Float.parseFloat(enterPrice.getText().toString());
-                    }catch (Exception e){
-                        Toast invalidData = Toast.makeText(getApplicationContext(),"Invalid Data Entry",Toast.LENGTH_SHORT);
-                        invalidData.show();
-                        dataValid =false;
+                    } catch (Exception e) {
+                        Toast invalidDataQP = Toast.makeText(getApplicationContext(), "Invalid Data Entry", Toast.LENGTH_SHORT);
+                        invalidDataQP.show();
+                        dataValid = false;
                     }
                 }
+
 
                 if (dataValid){
                     DbUtils.insertNewProduct(prodcName,quantity,price,getApplicationContext());
@@ -117,13 +118,6 @@ public class AddActivity extends AppCompatActivity {
         if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             imageUri = data.getData();
-            String[] projection = {MediaStore.Images.Media.DATA};
-
-            Cursor cursor = getContentResolver().query(imageUri, projection, null, null, null);
-            cursor.moveToFirst();
-
-            cursor.close();
-
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 

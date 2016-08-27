@@ -39,7 +39,7 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void Delete(Context context){
+    public void delete(Context context){
         context.deleteDatabase(InventoryContract.ProductEntry.TABLE_NAME);
     }
 }
