@@ -12,10 +12,10 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
     private static final String INT_TYPE = " INTEGER";
     private static final String REAL_TYPE=" REAL";
     private static final String COMMA_SEP =",";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "Products.db";
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + InventoryContract.ProductEntry.TABLE_NAME + " (" +
-            InventoryContract.ProductEntry._ID+ "INTEGER PRIMARY KEY" + COMMA_SEP + InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME
+            InventoryContract.ProductEntry._ID + " INTEGER PRIMARY KEY" + COMMA_SEP + InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME
             + TEXT_TYPE + COMMA_SEP + InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY + INT_TYPE + COMMA_SEP+
             InventoryContract.ProductEntry.COLUMN_NAME_PRICE +REAL_TYPE+COMMA_SEP+InventoryContract.ProductEntry.COLUMN_NAME_IMAGE
             + TEXT_TYPE + ")";

@@ -18,7 +18,7 @@ public class DbUtils {
         //Constructor is Empty and private to prevent someone from creating an instance of the DBUtils Class.
     }
 
-    public static void insertNewProduct(String productName, int quantity, float price, Context context){
+    public static void insertNewProduct(String productName, int quantity, float price,String image, Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
@@ -26,6 +26,7 @@ public class DbUtils {
         values.put(InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME,productName);
         values.put(InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY,quantity);
         values.put(InventoryContract.ProductEntry.COLUMN_NAME_PRICE,price);
+        values.put(InventoryContract.ProductEntry.COLUMN_NAME_IMAGE,image);
 
         db.insert(InventoryContract.ProductEntry.TABLE_NAME,null, values);
     }

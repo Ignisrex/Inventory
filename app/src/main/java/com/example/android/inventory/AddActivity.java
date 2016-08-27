@@ -41,9 +41,9 @@ public class AddActivity extends AppCompatActivity {
                 int quantity = 0;
                 float price = 1;
                 boolean dataValid = true;
-                if (imageUri != null) {
+                try {
                     String image = imageUri.toString();
-                }else {
+                }catch (NullPointerException e){
                     Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Image Given",Toast.LENGTH_SHORT);
                     invalidData.show();
                     dataValid = false;
@@ -54,10 +54,20 @@ public class AddActivity extends AppCompatActivity {
                     Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Name Given",Toast.LENGTH_SHORT);
                     invalidData.show();
                     dataValid = false;
-                    }else {
+                }else{
                     try {
                         quantity = Integer.parseInt(enterQuantity.getText().toString());
+                        if(quantity<0){
+                            Toast invalidDataQ = Toast.makeText(getApplicationContext(), "Invalid Entry, Quantity can not be less than zero", Toast.LENGTH_SHORT);
+                            invalidDataQ.show();
+                            dataValid =false;
+                        }
                         price = Float.parseFloat(enterPrice.getText().toString());
+                        if(price<0){
+                            Toast invalidDataQ = Toast.makeText(getApplicationContext(), "Invalid Entry, Price can not be less than zero", Toast.LENGTH_SHORT);
+                            invalidDataQ.show();
+                            dataValid= false;
+                        }
                     } catch (Exception e) {
                         Toast invalidDataQP = Toast.makeText(getApplicationContext(), "Invalid Data Entry", Toast.LENGTH_SHORT);
                         invalidDataQP.show();
@@ -67,7 +77,8 @@ public class AddActivity extends AppCompatActivity {
 
 
                 if (dataValid){
-                    DbUtils.insertNewProduct(prodcName,quantity,price,getApplicationContext());
+                    String image =imageUri.toString();
+                    DbUtils.insertNewProduct(prodcName,quantity,price,image,getApplicationContext());
                     Intent returnIntent = new Intent();
                     setResult(RESULT_OK,returnIntent);
                     finish();
