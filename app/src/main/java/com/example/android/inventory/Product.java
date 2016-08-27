@@ -7,8 +7,9 @@ public class Product {
     private String mProductName;
     private int mQuantity;
     private float mPrice;
+    private int mSold;
 
-    public Product(String name,int quantity,float price){
+    public Product(String name,int quantity,float price, int sold){
         mProductName = name;
         mQuantity = quantity;
         mPrice = price;
@@ -25,5 +26,7 @@ public class Product {
     public float getPrice() {
         return mPrice;
     }
+
+    public int getSold(){return mSold;}
 
 }

@@ -24,10 +24,11 @@ public class DetailsActivity extends AppCompatActivity {
     static final int COL_QUANTITY = 2;
     static final int COL_PRICE = 3;
     static final int COL_IMAGE = 4;
+    static final int COL_SOLD=5;
     private Cursor c;
     private SQLiteDatabase db;
     private String selection;
-    private String[] projection ={InventoryContract.ProductEntry._ID,InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE, InventoryContract.ProductEntry.COLUMN_NAME_IMAGE};
+    private String[] projection ={InventoryContract.ProductEntry._ID,InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE, InventoryContract.ProductEntry.COLUMN_NAME_IMAGE, InventoryContract.ProductEntry.COLUMN_NAME_SOlD};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +159,11 @@ public class DetailsActivity extends AppCompatActivity {
         }catch (IOException e) {
             e.printStackTrace();
         }
+
+        TextView soldTextView = (TextView) findViewById(R.id.soldAmt);
+        String soldString = "Sold:"+ c.getInt(COL_SOLD);
+        soldTextView.setText(soldString);
+
 
     }
 }

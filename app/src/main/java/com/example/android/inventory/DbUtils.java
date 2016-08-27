@@ -27,6 +27,7 @@ public class DbUtils {
         values.put(InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY,quantity);
         values.put(InventoryContract.ProductEntry.COLUMN_NAME_PRICE,price);
         values.put(InventoryContract.ProductEntry.COLUMN_NAME_IMAGE,image);
+        values.put(InventoryContract.ProductEntry.COLUMN_NAME_SOlD,0);
 
         db.insert(InventoryContract.ProductEntry.TABLE_NAME,null, values);
     }
@@ -34,7 +35,7 @@ public class DbUtils {
     public static Cursor ReadAll(Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        String[] projection ={InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE};
+        String[] projection ={InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME, InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY, InventoryContract.ProductEntry.COLUMN_NAME_PRICE, InventoryContract.ProductEntry.COLUMN_NAME_SOlD};
 
         String sortOrder = InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME +" DESC";
 
@@ -73,6 +74,22 @@ public class DbUtils {
 
         String selection = InventoryContract.ProductEntry._ID + " LIKE ?";
         String[] selectionArgs = {String.valueOf(rowId)};
+
+        db.update(
+                InventoryContract.ProductEntry.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+        db.close();
+    }
+    public static void Update(String column,String content, String name,Context context){
+        mDbHelper = new InventoryDbHelper(context);
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        ContentValues values =new ContentValues();
+        values.put(column,content);
+
+        String selection = InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME+ " LIKE ?";
+        String[] selectionArgs = {name};
 
         db.update(
                 InventoryContract.ProductEntry.TABLE_NAME,
