@@ -29,4 +29,13 @@ public class Product {
 
     public int getSold(){return mSold;}
 
+    public void setSold(int sold){
+        mSold = sold;
+    }
+
+    public void setQuantity(int quantity){
+        mQuantity = quantity;
+    }
+
+
 }

@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
+    protected void onResume() {
+        super.onResume();
         loaderManager.restartLoader(0, null, this);
     }
 

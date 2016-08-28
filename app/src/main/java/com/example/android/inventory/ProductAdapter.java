@@ -32,14 +32,14 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         TextView productNameTextView = (TextView) listItemView.findViewById(R.id.productName);
         productNameTextView.setText(currentProduct.getProductName());
 
-        TextView quantityTextView = (TextView) listItemView.findViewById(R.id.quantityAmt);
+        final TextView quantityTextView = (TextView) listItemView.findViewById(R.id.quantityAmt);
         quantityTextView.setText(Integer.toString(currentProduct.getQuantity()));
 
         TextView priceTextView =(TextView) listItemView.findViewById(R.id.productPrice);
         String priceTag = "$" + currentProduct.getPrice();
         priceTextView.setText(priceTag);
 
-        TextView soldTextView = (TextView) listItemView.findViewById(R.id.sold);
+        final TextView soldTextView = (TextView) listItemView.findViewById(R.id.sold);
         String soldString = "Sold:"+ currentProduct.getSold();
         soldTextView.setText(soldString);
 
@@ -52,7 +52,13 @@ public class ProductAdapter extends ArrayAdapter<Product> {
                     int newSld = currentProduct.getSold() + 1;
                     DbUtils.Update(InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY,Integer.toString(newQn),currentProduct.getProductName(),getContext());
                     DbUtils.Update(InventoryContract.ProductEntry.COLUMN_NAME_SOlD,Integer.toString(newSld),currentProduct.getProductName(),getContext());
+                    currentProduct.setQuantity(newQn);
+                    currentProduct.setSold(newSld);
 
+                    String soldString = "Sold:"+ currentProduct.getSold();
+                    soldTextView.setText(soldString);
+
+                    quantityTextView.setText(Integer.toString(currentProduct.getQuantity()));
                 }
             }
         });
