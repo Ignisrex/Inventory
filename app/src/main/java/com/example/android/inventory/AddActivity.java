@@ -78,7 +78,8 @@ public class AddActivity extends AppCompatActivity {
 
                 if (dataValid){
                     String image =imageUri.toString();
-                    DbUtils.insertNewProduct(prodcName,quantity,price,image,getApplicationContext());
+                    int initSold =0;
+                    DbUtils.insertNewProduct(prodcName,quantity,price,image,initSold,getApplicationContext());
                     Intent returnIntent = new Intent();
                     setResult(RESULT_OK,returnIntent);
                     finish();

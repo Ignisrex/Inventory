@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         productsListView.setEmptyView(mEmptyStateTextView);
 
         productsListView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+
 
         loaderManager  = getLoaderManager();
         loaderManager.initLoader(PRODUCT_LOADER_ID,null,this);
