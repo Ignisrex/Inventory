@@ -52,6 +52,12 @@
             android:text="@string/addImage"
             android:id="@+id/imagebutton" />
 
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noPhoto"
+            android:id="@+id/noImageg"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -13,5 +13,6 @@
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="addImage">Add Product Image</string>
+    <string name="noPhoto">No Image</string>
 
 </resources>

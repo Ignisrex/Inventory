@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class AddActivity extends AppCompatActivity {
 
     private Uri imageUri;
     private int IMAGE_REQUEST= 1;
+    private boolean NO_IMAGE_STATUS= false ;
     private InventoryDbHelper mDbHelper = new InventoryDbHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +43,20 @@ public class AddActivity extends AppCompatActivity {
                 int quantity = 0;
                 float price = 1;
                 boolean dataValid = true;
-                try {
-                    String image = imageUri.toString();
-                }catch (NullPointerException e){
-                    Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Image Given",Toast.LENGTH_SHORT);
-                    invalidData.show();
-                    dataValid = false;
+                RadioButton noImageButton = (RadioButton) findViewById(R.id.noImage);
+                if(noImageButton.isChecked()){
+                    NO_IMAGE_STATUS =true;
+
+                }else{
+                    try {
+                        String image = imageUri.toString();
+                    }catch (NullPointerException e){
+                        Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Image Given",Toast.LENGTH_SHORT);
+                        invalidData.show();
+                        dataValid = false;
+                    }
                 }
+
                 String prodcName = enterName.getText().toString();
 
                 if (prodcName.isEmpty()){
@@ -77,12 +86,22 @@ public class AddActivity extends AppCompatActivity {
 
 
                 if (dataValid){
-                    String image =imageUri.toString();
-                    int initSold =0;
-                    DbUtils.insertNewProduct(prodcName,quantity,price,image,initSold,getApplicationContext());
-                    Intent returnIntent = new Intent();
-                    setResult(RESULT_OK,returnIntent);
-                    finish();
+                    if(!NO_IMAGE_STATUS){
+                        String image = "jfjfjfjf";
+                        int initSold =0;
+                        DbUtils.insertNewProduct(prodcName,quantity,price,image,initSold,getApplicationContext());
+                        Intent returnIntent = new Intent();
+                        setResult(RESULT_OK,returnIntent);
+                        finish();
+                    }else{
+                        String image =imageUri.toString();
+                        int initSold =0;
+                        DbUtils.insertNewProduct(prodcName,quantity,price,image,initSold,getApplicationContext());
+                        Intent returnIntent = new Intent();
+                        setResult(RESULT_OK,returnIntent);
+                        finish();
+                    }
+
 
                 }
             }
