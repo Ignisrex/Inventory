@@ -86,7 +86,7 @@ public class AddActivity extends AppCompatActivity {
 
 
                 if (dataValid){
-                    if(!NO_IMAGE_STATUS){
+                    if(NO_IMAGE_STATUS){
                         String image = "jfjfjfjf";
                         int initSold =0;
                         DbUtils.insertNewProduct(prodcName,quantity,price,image,initSold,getApplicationContext());
