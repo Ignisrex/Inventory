@@ -87,7 +87,8 @@ public class AddActivity extends AppCompatActivity {
 
                 if (dataValid){
                     if(NO_IMAGE_STATUS){
-                        String image = "jfjfjfjf";
+                        Uri path = Uri.parse("android.resource://com.example.android.inventory/" + R.drawable.noimage);
+                        String image = path.toString();
                         int initSold =0;
                         DbUtils.insertNewProduct(prodcName,quantity,price,image,initSold,getApplicationContext());
                         Intent returnIntent = new Intent();

@@ -9,25 +9,27 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.inventory.DetailsActivity">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:weightSum="1">
+
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/image"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
             <TextView
-                android:padding="8dp"
+                android:fontFamily="monospace"
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,21 +48,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text ="10"
+                android:textColor="#0000ff"
                 android:textSize="32sp" />
 
         </LinearLayout>
 
         <TextView
-            android:paddingLeft="8dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
             android:padding="4dp"
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
-            android:textColor="@color/black"
+            android:textColor="#85bb65"
             tools:text ="$9.50"/>
         <TextView
-            android:paddingLeft="8dp"
+            android:textColor="@color/black"
+            android:fontFamily="monospace"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
             android:padding="4dp"
             android:textSize="20sp"
             android:layout_width="wrap_content"
@@ -68,57 +75,61 @@
             android:id="@+id/soldAmt"
             tools:text="Sold:1"/>
 
-        <TextView
-            android:paddingLeft="8dp"
-            android:padding="4dp"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/initquantity"/>
         <LinearLayout
-            android:paddingLeft="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:paddingLeft="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:padding="4dp"
+                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/initquantity"/>
             <Button
                 android:id="@+id/minus"
                 android:layout_width="60dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="-"/>
             <Button
                 android:id="@+id/plus"
                 android:layout_width="60dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="+" />
         </LinearLayout>
 
 
-
-
         <Button
+            android:gravity="center"
             android:layout_marginTop="8dp"
-            android:layout_margin="16dp"
+            android:layout_marginBottom="24dp"
             android:id="@+id/shipment"
-            android:layout_width="wrap_content"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="@string/shipment"/>
+            android:layout_gravity="center"
+            android:text="@string/shipment"
+            android:textAlignment="center"/>
 
         <Button
-            android:layout_margin="16dp"
+            android:layout_marginBottom="24dp"
             android:id="@+id/sale"
-            android:layout_width="wrap_content"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="@string/sale"/>
+            android:layout_gravity="center"
+            android:text="@string/sale"
+            android:textAlignment="center"/>
 
         <Button
-            android:layout_margin="16dp"
+            android:layout_marginBottom="24dp"
             android:id="@+id/deleteButton"
-            android:layout_width="wrap_content"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:text="@string/del"
-            android:layout_gravity="bottom"/>
+            android:layout_gravity="center"
+            android:textAlignment="center" />
 
         <Button
             android:layout_width="wrap_content"

@@ -11,22 +11,25 @@
         android:orientation="vertical">
 
         <TextView
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/productName"
-            tools:text="ProductName"/>
+            tools:text="ProductName"
+            android:fontFamily="monospace"/>
 
         <TextView
-            android:textSize="24sp"
-            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textColor="#85bb65"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/productPrice"
             tools:text="$10.20"/>
         <TextView
+            android:fontFamily="monospace"
             android:textSize="20sp"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sold"
@@ -41,13 +44,13 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="#0000ff"
         tools:text="10"/>
     <Button
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:id="@+id/saleButton"
-        android:layout_weight="1"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="@string/sale"/>
 
