@@ -31,13 +31,10 @@ public class ProductLoader extends AsyncTaskLoader {
 
     @Override
     public List<Product> loadInBackground() {
-
         ArrayList<Product> products = new ArrayList<>();
-
         if(mProdcData == null || mProdcData.getCount() == 0) {
             return null;
         }
-
         while (mProdcData.moveToNext()) {
             products.add(
                     new Product(mProdcData.getString(COL_PRODC_NAME),
@@ -47,7 +44,6 @@ public class ProductLoader extends AsyncTaskLoader {
             );
             Log.e("test",products.toString());
         }
-
         return products;
     }
 }

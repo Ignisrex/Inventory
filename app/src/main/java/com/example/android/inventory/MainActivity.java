@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
 
     }
-
     @Override
     public android.content.Loader<List<Product>> onCreateLoader(int id, Bundle args) {
         Cursor c = null;
@@ -69,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
         return new ProductLoader(this,c);
     }
+
 
     @Override
     public void onLoadFinished(android.content.Loader<List<Product>> loader, List<Product> products) {

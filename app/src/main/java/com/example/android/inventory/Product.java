@@ -14,7 +14,6 @@ public class Product {
         mQuantity = quantity;
         mPrice = price;
     }
-
     public String getProductName() {
         return mProductName;
     }
@@ -36,6 +35,4 @@ public class Product {
     public void setQuantity(int quantity){
         mQuantity = quantity;
     }
-
-
 }

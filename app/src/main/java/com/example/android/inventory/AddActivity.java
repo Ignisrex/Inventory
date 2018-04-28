@@ -46,7 +46,6 @@ public class AddActivity extends AppCompatActivity {
                 RadioButton noImageButton = (RadioButton) findViewById(R.id.noImage);
                 if(noImageButton.isChecked()){
                     NO_IMAGE_STATUS =true;
-
                 }else{
                     try {
                         String image = imageUri.toString();
@@ -58,7 +57,6 @@ public class AddActivity extends AppCompatActivity {
                 }
 
                 String prodcName = enterName.getText().toString();
-
                 if (prodcName.isEmpty()){
                     Toast invalidData = Toast.makeText(getApplicationContext(),"No Product Name Given",Toast.LENGTH_SHORT);
                     invalidData.show();
@@ -123,7 +121,6 @@ public class AddActivity extends AppCompatActivity {
                 checkPermissions();
                 imageIntent.setType("image/*");
                 startActivityForResult(Intent.createChooser(imageIntent, "Select Picture"), IMAGE_REQUEST);
-
             }
 
         });
@@ -139,14 +136,11 @@ public class AddActivity extends AppCompatActivity {
                         1);
             }
         }
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-
         if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             imageUri = data.getData();
@@ -160,6 +154,5 @@ public class AddActivity extends AppCompatActivity {
             }
         }
     }
-
 }
 

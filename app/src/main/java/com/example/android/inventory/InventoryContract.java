@@ -6,7 +6,6 @@ import android.provider.BaseColumns;
  * Created by keane on 8/5/2016.
  */
 public final class InventoryContract {
-
     private InventoryContract(){}
     public static abstract class ProductEntry implements BaseColumns{
         public static final String TABLE_NAME = "Products";
@@ -15,8 +14,5 @@ public final class InventoryContract {
         public static final String COLUMN_NAME_PRICE = "Price";
         public static final String COLUMN_NAME_IMAGE ="Image";
         public static final String COLUMN_NAME_SOlD ="Sold";
-
-
-
     }
 }

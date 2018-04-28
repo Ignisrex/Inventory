@@ -1,0 +1,4 @@
+#Wed Dec 21 00:25:08 COT 2016
+base.0=C\:\\Users\\keane\\AndroidStudioProjects\\Inventory\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=C\:\\Users\\keane\\AndroidStudioProjects\\Inventory\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

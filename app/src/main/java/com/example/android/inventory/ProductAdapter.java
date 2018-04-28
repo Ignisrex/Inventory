@@ -28,13 +28,11 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         }
 
         final Product currentProduct = getItem(position);
-
         TextView productNameTextView = (TextView) listItemView.findViewById(R.id.productName);
         productNameTextView.setText(currentProduct.getProductName());
 
         final TextView quantityTextView = (TextView) listItemView.findViewById(R.id.quantityAmt);
         quantityTextView.setText(Integer.toString(currentProduct.getQuantity()));
-
         TextView priceTextView =(TextView) listItemView.findViewById(R.id.productPrice);
         String priceTag = "$" + currentProduct.getPrice();
         priceTextView.setText(priceTag);
@@ -62,7 +60,6 @@ public class ProductAdapter extends ArrayAdapter<Product> {
                 }
             }
         });
-
         return listItemView;
     }
 }

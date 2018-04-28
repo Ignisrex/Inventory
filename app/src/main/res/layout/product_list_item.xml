@@ -47,6 +47,7 @@
         android:textColor="#0000ff"
         tools:text="10"/>
     <Button
+        android:theme="@style/MyButton"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:id="@+id/saleButton"

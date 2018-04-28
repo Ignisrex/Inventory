@@ -19,26 +19,19 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
             + TEXT_TYPE + COMMA_SEP + InventoryContract.ProductEntry.COLUMN_NAME_QUANTITY + INT_TYPE + COMMA_SEP+
             InventoryContract.ProductEntry.COLUMN_NAME_PRICE +REAL_TYPE+COMMA_SEP+InventoryContract.ProductEntry.COLUMN_NAME_IMAGE
             + TEXT_TYPE +COMMA_SEP+ InventoryContract.ProductEntry.COLUMN_NAME_SOlD + INT_TYPE+ ")";
-
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + InventoryContract.ProductEntry.TABLE_NAME;
-
     public InventoryDbHelper(Context context){
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
     }
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
         sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
-
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
         onCreate(sqLiteDatabase);
     }
-
     public void delete(Context context){
         context.deleteDatabase(InventoryContract.ProductEntry.TABLE_NAME);
     }

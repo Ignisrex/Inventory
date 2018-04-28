@@ -17,7 +17,6 @@ public class DbUtils {
     private DbUtils(){
         //Constructor is Empty and private to prevent someone from creating an instance of the DBUtils Class.
     }
-
     public static void insertNewProduct(String productName, int quantity, float price,String image,int sold, Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -31,7 +30,6 @@ public class DbUtils {
 
         db.insert(InventoryContract.ProductEntry.TABLE_NAME,null, values);
     }
-
     public static Cursor ReadAll(Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -48,7 +46,6 @@ public class DbUtils {
                 sortOrder);
         return c;
     }
-
     public static void DeleteAll(Context context){
         mDbHelper = new InventoryDbHelper(context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();

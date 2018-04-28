@@ -7,5 +7,14 @@
         <item name="colorPrimaryDark">#1976D2</item>
         <item name="colorAccent">#FFC107</item>
     </style>
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">#fcf9f9</item>
+        <item name="colorControlHighlight">#f77c02</item>
+        <item name="colorButtonNormal">#FFC107</item>
+    </style>
+    <style name="main_theme">
+        <item name="android:background">#484449</item>
+        <item name="android:textColor">#FFFF</item>
+    </style>
 
 </resources>

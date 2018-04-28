@@ -37,16 +37,12 @@ public class DetailsActivity extends AppCompatActivity {
         mDbHelper =new InventoryDbHelper(getApplicationContext());
         String name = "";
         db = mDbHelper.getWritableDatabase();
-
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             name = extras.getString("currentProduct");
         }
         selection = InventoryContract.ProductEntry.COLUMN_NAME_PRODC_NAME + " LIKE '" + name+"'";
-
         UpdateUi();
-
         Button finButton = (Button) findViewById(R.id.button);
         finButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +52,6 @@ public class DetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         Button plusBtn = (Button) findViewById(R.id.plus);
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +74,6 @@ public class DetailsActivity extends AppCompatActivity {
                 }
             }
         });
-
         Button makeSaleBtn = (Button) findViewById(R.id.sale);
         makeSaleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +85,6 @@ public class DetailsActivity extends AppCompatActivity {
                 }
             }
         });
-
         Button orderBtn =(Button) findViewById(R.id.shipment);
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +98,6 @@ public class DetailsActivity extends AppCompatActivity {
                 }
             }
         });
-
         Button deleteBtn =(Button) findViewById(R.id.deleteButton);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,7 +151,6 @@ public class DetailsActivity extends AppCompatActivity {
         }catch (IOException e) {
             e.printStackTrace();
         }
-
         TextView soldTextView = (TextView) findViewById(R.id.soldAmt);
         String soldString = "Sold:"+ c.getInt(COL_SOLD);
         soldTextView.setText(soldString);
